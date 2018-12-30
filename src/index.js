@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import './static/css/vendor/sb-admin.min.css'
+// import './static/js/vendor/sb-admin.js'
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
