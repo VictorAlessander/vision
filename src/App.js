@@ -23,7 +23,7 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar sideBar={this.toggleSideBar} />
-        <Body>
+        <Body toggled={this.state.sideBarToggled}>
           <Sidebar key="Sidebar" toggled={this.state.sideBarToggled} />
           <Cards key="Cards" />
           <Chart key="Chart" />
