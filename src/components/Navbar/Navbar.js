@@ -9,14 +9,14 @@ library.add(faBars);
 library.add(faEnvelope);
 library.add(faUserCircle);
 
-const Navbar = () => {
+const Navbar = (props) => {
+
   return (
-    <>
       <nav className="navbar navbar-expand navbar-dark bg-dark static-top">
 
         <a className="navbar-brand mr-1" href="#">Vision</a>
 
-        <button className="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle">
+        <button className="btn btn-link btn-sm text-white order-1 order-sm-0" onClick={props.sideBar}>
           <FontAwesomeIcon icon="bars" />
         </button>
 
@@ -59,7 +59,6 @@ const Navbar = () => {
         </ul>
 
       </nav>
-    </>
   );
 }
 

@@ -9,12 +9,22 @@ import Table from './components/Table/Table';
 import Cards from './components/Cards/Cards';
 
 class App extends Component {
+
+  state = {
+    'sideBarToggled': false
+  };
+
+  toggleSideBar = () => {
+    this.setState({'sideBarToggled': !this.state.sideBarToggled});
+    console.log('toggled!');
+  }
+
   render () {
     return (
       <div className="App">
-        <Navbar />
+        <Navbar sideBar={this.toggleSideBar} />
         <Body>
-          <Sidebar key="Sidebar" />
+          <Sidebar key="Sidebar" toggled={this.state.sideBarToggled} />
           <Cards key="Cards" />
           <Chart key="Chart" />
           <Table key="Table"/>

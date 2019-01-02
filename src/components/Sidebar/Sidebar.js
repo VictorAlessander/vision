@@ -5,9 +5,16 @@ import { faChartArea, faTable, faFolder } from '@fortawesome/free-solid-svg-icon
 
 library.add(faChartArea, faTable, faFolder);
 
-const Sidebar = () => {
+const Sidebar = (props) => {
+
+  let classes = [
+    'sidebar',
+    'navbar-nav',
+    props.toggled ? 'toggled' : null
+  ].join(' ');
+
   return (
-    <ul className="sidebar navbar-nav">
+    <ul className={classes}>
       <li className="nav-item active">
         <a className="nav-link" href="#" >
           <FontAwesomeIcon icon="tachometer-alt" />
