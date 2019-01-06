@@ -2,7 +2,7 @@ import React from 'react';
 
 const Body = (props) => {
   return (
-    <div id="wrapper">
+    <div id="wrapper" className={props.toggled ? 'sidebar-toggled' : null}>
 
     { props.children.filter((comp) => {
       return comp.key === 'Sidebar';
