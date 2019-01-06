@@ -4,7 +4,7 @@ import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Body from './components/Body/Body';
 import Sidebar from './components/Sidebar/Sidebar';
-import Chart from './components/Chart/Chart';
+import Chart from './containers/Chart/Chart';
 import Table from './components/Table/Table';
 import Cards from './components/Cards/Cards';
 
@@ -15,8 +15,7 @@ class App extends Component {
   };
 
   toggleSideBar = () => {
-    this.setState({'sideBarToggled': !this.state.sideBarToggled});
-    console.log('toggled!');
+    this.setState({ 'sideBarToggled': !this.state.sideBarToggled });
   }
 
   render () {
@@ -24,10 +23,10 @@ class App extends Component {
       <div className="App">
         <Navbar sideBar={this.toggleSideBar} />
         <Body toggled={this.state.sideBarToggled}>
-          <Sidebar key="Sidebar" toggled={this.state.sideBarToggled} />
+          <Sidebar key="Sidebar" sideBarToggled={this.state.sideBarToggled} />
           <Cards key="Cards" />
           <Chart key="Chart" />
-          <Table key="Table"/>
+          <Table key="Table" />
         </Body>
         <Footer />
       </div>
