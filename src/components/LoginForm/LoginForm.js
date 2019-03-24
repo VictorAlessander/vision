@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Form, Icon, Input, Button, Row, Col } from 'antd';
 import './LoginForm.css';
+import { Link } from 'react-router-dom';
+
 
 class LoginForm extends Component {
 
@@ -15,8 +17,9 @@ class LoginForm extends Component {
 
     return (
       <Row>
-        <Col span={12} offset={6}>
-          <Form onSubmit={this.handleSubmit}>
+        <h1>Sign in</h1>
+        <Col span={12} offset={6} className="column-form">
+          <Form onSubmit={this.handleSubmit} className="login-form">
             <Form.Item>
               {getFieldDecorator('userName', {
                 rules: [{ required: true, message: 'Enter your username' }]
@@ -29,11 +32,11 @@ class LoginForm extends Component {
               })}
               <Input prefix={<Icon type="lock"></Icon>} placeholder="Password" />
             </Form.Item>
-            <a className="login-form-forgot" href="#">Forgot password</a>
             <Button type="primary" htmlType="submit" className="login-form-button">
               Login
             </Button>
-            Or <a href="#">register now</a>
+            <Link to={{ pathname: "/register" }} className="register-now">Register now</Link>
+            <Link to={{ pathname: "/forgot_password" }} className="forgot-password">Forgot password</Link>
           </Form>
         </Col>
       </Row>

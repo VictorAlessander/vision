@@ -3,17 +3,9 @@
   justify-content: center;
 }
 
-.login-form {
+.register-form {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   flex-direction: column;
-}
-
-.register-now {
-  margin-top: 10px;
-}
-
-.forgot-password {
-  margin-top: 10px;
 }
