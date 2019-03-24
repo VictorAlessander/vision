@@ -5,11 +5,14 @@ import './LoginForm.css';
 class LoginForm extends Component {
 
   handleSubmit = (event) => {
-    console.log(event);
+    event.preventDefault();
+
+    this.props.history.push("/")
   };
 
   render () {
     const { getFieldDecorator } = this.props.form;
+
     return (
       <Row>
         <Col span={12} offset={6}>
@@ -29,7 +32,7 @@ class LoginForm extends Component {
             <a className="login-form-forgot" href="#">Forgot password</a>
             <Button type="primary" htmlType="submit" className="login-form-button">
               Login
-        </Button>
+            </Button>
             Or <a href="#">register now</a>
           </Form>
         </Col>

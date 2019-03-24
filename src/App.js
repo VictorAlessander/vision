@@ -4,6 +4,8 @@ import { Layout, Menu, Breadcrumb } from 'antd';
 import './components/LoginForm/LoginForm';
 import WrappedLoginForm from './components/LoginForm/LoginForm';
 import './logo.css';
+import { Route } from 'react-router-dom';
+import Home from './components/Home/Home';
 
 const { Header, Content, Footer } = Layout;
 
@@ -18,8 +20,9 @@ class App extends Component {
               <Menu.Item key="1">Home</Menu.Item>
             </Menu>
           </Header>
-          <Content style={{margin: '16px 0'}}>
-            <WrappedLoginForm />
+          <Content style={{ margin: '16px 0' }}>
+            <Route path="/" exact component={Home} />
+            <Route path="/login" exact component={WrappedLoginForm} />
           </Content>
           <Footer style={{ textAlign: 'center' }}>
             Vision @2019 Created by Victor Alessander
