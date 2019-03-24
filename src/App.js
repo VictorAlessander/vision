@@ -1,25 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Layout, Menu, Breadcrumb } from 'antd';
+import './components/LoginForm/LoginForm';
+import WrappedLoginForm from './components/LoginForm/LoginForm';
+import './logo.css';
+
+const { Header, Content, Footer } = Layout;
 
 class App extends Component {
-  render() {
+  render () {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Layout className="layout">
+          <Header>
+            <div className="logo" />
+            <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']} style={{ lineHeight: '64px' }}>
+              <Menu.Item key="1">Home</Menu.Item>
+            </Menu>
+          </Header>
+          <Content style={{margin: '16px 0'}}>
+            <WrappedLoginForm />
+          </Content>
+          <Footer style={{ textAlign: 'center' }}>
+            Vision @2019 Created by Victor Alessander
+          </Footer>
+        </Layout>
       </div>
     );
   }
