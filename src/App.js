@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { Layout, Menu } from 'antd';
 import './components/LoginForm/LoginForm';
-import WrappedLoginForm from './components/LoginForm/LoginForm';
+import Authentication from './containers/Authentication/Authentication';
 import './logo.css';
 import { Route, Link } from 'react-router-dom';
 import Home from './components/Home/Home';
@@ -25,7 +25,7 @@ class App extends Component {
           </Header>
           <Content style={{ margin: '16px 0' }}>
             <Route path="/" exact component={Home} />
-            <Route path="/login" exact component={WrappedLoginForm} />
+            <Route path="/login" exact component={Authentication} />
             <Route path="/register" exact component={WrappedRegisterForm} />
             <Route path="/chart" exact component={Chart} />
           </Content>
