@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Icon, Input, Button, Row, Col } from 'antd';
-import { handleRegistration } from '../Register/handleRegistration';
+import { handleRegistration } from '../Register/registrationHandler';
 
 
 class RegisterForm extends Component {

@@ -8,6 +8,8 @@ import { Route, Link } from 'react-router-dom';
 import Home from './components/Home/Home';
 import WrappedRegisterForm from './components/RegisterForm/RegisterForm';
 import Chart from './components/Chart/Chart';
+import WrappedCategoryForm from './components/CategoryForm/CategoryForm';
+import Categories from './components/Categories/Categories';
 
 const { Header, Content, Footer } = Layout;
 
@@ -19,14 +21,17 @@ class App extends Component {
           <Header>
             <div className="logo" />
             <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']} style={{ lineHeight: '64px', float: 'left' }}>
-              <Menu.Item key="1"><Link to={{pathname: '/'}}>Home</Link></Menu.Item>
-              <Menu.Item key="2"><Link to={{pathname: '/chart'}}>Chart</Link></Menu.Item>
+              <Menu.Item key="1"><Link to={{ pathname: '/' }}>Home</Link></Menu.Item>
+              <Menu.Item key="2"><Link to={{ pathname: '/chart' }}>Chart</Link></Menu.Item>
+              <Menu.Item key="3"><Link to={{ pathname: '/categories' }}>Categories</Link></Menu.Item>
             </Menu>
           </Header>
           <Content style={{ margin: '16px 0' }}>
             <Route path="/" exact component={Home} />
             <Route path="/login" exact component={Authentication} />
             <Route path="/register" exact component={WrappedRegisterForm} />
+            <Route path="/categories/create" exact component={WrappedCategoryForm} />
+            <Route path="/categories" exact component={Categories} />
             <Route path="/chart" exact component={Chart} />
           </Content>
           <Footer style={{ textAlign: 'center' }}>

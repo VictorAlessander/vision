@@ -14,7 +14,7 @@ class Chart extends Component {
     }
     return (
       <div className="chart">
-        <Line data={data} width="600" height="300" options={{ maintainAspectRatio: false, responsive: false }} />
+        <Line data={data} width={600} height={300} options={{ maintainAspectRatio: false, responsive: false }} />
       </div>
     );
   }

@@ -4,7 +4,7 @@ import {
 } from '../../constants/BillingManager';
 
 
-export const handleRegistration = (props) => {
+export const registrationHandler = (props) => {
   fetch(
     BILLING_MANAGER_BASE_PATH + BILLING_MANAGER_REGISTRATION_PATH,
     {
