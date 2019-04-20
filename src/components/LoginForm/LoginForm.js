@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
-import { Form, Icon, Input, Button, Row, Col } from 'antd';
+import React from 'react';
+import { Form, Icon, Input, Button, Row, Col, notification } from 'antd';
 import './LoginForm.css';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
+import {AuthContext} from '../../provider/AuthProvider';
 
+class LoginForm extends React.Component {
 
-class LoginForm extends Component {
+  static contextType = AuthContext;
 
-  constructor(props) {
+  constructor(props, context) {
     super(props);
     this.state = { username: '', password: '' };
 
@@ -15,10 +17,44 @@ class LoginForm extends Component {
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
   }
 
+  openNotification = (title, content) => {
+    notification.open({
+      message: title,
+      description: content
+    })
+  }
+
   handleSubmit = (event) => {
     event.preventDefault();
 
-    this.props.history.push("/")
+    let credentials = { ...this.state };
+
+    // this.props.history.push("/") ? loginHandler(credentials) : console.log('Something went wrong');
+    // console.log('Authenticated') ? this.props.login(credentials) : console.log('Something went wrong');
+    // this.context.login(credentials);
+
+    // console.log(this.context);
+
+    this.context.login(credentials).then(response => {
+      if (response.ok) {
+        response.json().then(data => {
+          if (data.message !== 'User not found') {
+            this.context.access_token = data.access_token;
+            this.context.refresh_token = data.refresh_token;
+            this.context.isAuthenticated = true;
+          }
+          else {
+            this.openNotification('Login status', data.message);
+          }
+        })
+      }
+      else if (response.status === 401) {
+        console.log('Unauthorized');
+      }
+    }).catch(err => {
+      console.log(err);
+    });
+
   };
 
   handleUsernameChange = (event) => {
@@ -59,15 +95,15 @@ class LoginForm extends Component {
             </Form.Item>
             <Button type="primary" htmlType="submit" className="login-form-button">
               Login
-            </Button>
+                </Button>
             <Link to={{ pathname: "/register" }} className="register-now">Register now</Link>
             <Link to={{ pathname: "/forgot_password" }} className="forgot-password">Forgot password</Link>
           </Form>
         </Col>
       </Row>
-    );
-  };
-};
+    )
+  }
+}
 
 const WrappedLoginForm = Form.create({ name: 'login_form' })(LoginForm);
 

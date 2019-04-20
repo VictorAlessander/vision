@@ -7,7 +7,9 @@ class Authentication extends React.Component {
   state = { access_token: '', refresh_token: '' };
 
   render () {
-    return <WrappedLoginForm />;
+    return (
+      <WrappedLoginForm />
+    );
   };
 };
 

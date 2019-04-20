@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import { Layout, Menu } from 'antd';
 import './components/LoginForm/LoginForm';
-import Authentication from './containers/Authentication/Authentication';
 import './logo.css';
 import { Route, Link } from 'react-router-dom';
 import Home from './components/Home/Home';
@@ -10,6 +9,7 @@ import WrappedRegisterForm from './components/RegisterForm/RegisterForm';
 import Chart from './components/Chart/Chart';
 import WrappedCategoryForm from './components/CategoryForm/CategoryForm';
 import Categories from './components/Categories/Categories';
+import { Login } from './components/Login/Login';
 
 const { Header, Content, Footer } = Layout;
 
@@ -28,11 +28,11 @@ class App extends Component {
           </Header>
           <Content style={{ margin: '16px 0' }}>
             <Route path="/" exact component={Home} />
-            <Route path="/login" exact component={Authentication} />
             <Route path="/register" exact component={WrappedRegisterForm} />
             <Route path="/categories/create" exact component={WrappedCategoryForm} />
             <Route path="/categories" exact component={Categories} />
             <Route path="/chart" exact component={Chart} />
+            <Route path="/login" exact component={Login} />
           </Content>
           <Footer style={{ textAlign: 'center' }}>
             Vision @2019 Created by Victor Alessander
@@ -40,7 +40,7 @@ class App extends Component {
         </Layout>
       </div>
     );
-  }
-}
+  };
+};
 
 export default App;
