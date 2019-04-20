@@ -3,11 +3,11 @@ import React from 'react';
 import WrappedLoginForm from '../LoginForm/LoginForm';
 
 
-export const Login = (props) => {
+export const Authentication = (props) => {
   return (
     // <AuthContext.Consumer>
     //   {context => <WrappedLoginForm login={context.login} />}
     // </AuthContext.Consumer>
     <WrappedLoginForm />
   );
-}
+};

@@ -2,9 +2,17 @@ import {
   BILLING_MANAGER_BASE_PATH,
   BILLING_MANAGER_REGISTRATION_PATH
 } from '../../constants/BillingManager';
+import {notification} from 'antd';
 
+export const registrationHandler = (props, context) => {
 
-export const registrationHandler = (props) => {
+  const openNotification = (title, content) => {
+    notification.open({
+      message: title,
+      description: content
+    })
+  }
+
   fetch(
     BILLING_MANAGER_BASE_PATH + BILLING_MANAGER_REGISTRATION_PATH,
     {
@@ -21,8 +29,11 @@ export const registrationHandler = (props) => {
     if (response.ok) {
       response.json().then(
         data => {
-          console.log(data);
-          return data;
+          if (data.message !== `User ${props.username} already exists`) {
+            context.access_token = data.access_token;
+            context.refresh_token = data.refresh_token;
+          }
+          openNotification('Registration status', data.message);
         }
       )
     }

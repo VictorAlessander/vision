@@ -12,14 +12,10 @@ class AuthProvider extends React.Component {
   constructor(props, context) {
     super(props);
     this.state = {
-      access_token: '123',
+      access_token: '',
       refresh_token: '',
       isAuthenticated: false
     }
-  }
-
-  isAuthenticated = () => {
-    return this.state.isAuthenticated;
   }
 
   async login (credentials) {
@@ -48,7 +44,6 @@ class AuthProvider extends React.Component {
     // })
 
     return req;
-
   }
 
   render () {

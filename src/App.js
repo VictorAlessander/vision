@@ -9,7 +9,7 @@ import WrappedRegisterForm from './components/RegisterForm/RegisterForm';
 import Chart from './components/Chart/Chart';
 import WrappedCategoryForm from './components/CategoryForm/CategoryForm';
 import Categories from './components/Categories/Categories';
-import { Login } from './components/Login/Login';
+import { Authentication } from './components/Authentication/Authentication';
 
 const { Header, Content, Footer } = Layout;
 
@@ -32,7 +32,7 @@ class App extends Component {
             <Route path="/categories/create" exact component={WrappedCategoryForm} />
             <Route path="/categories" exact component={Categories} />
             <Route path="/chart" exact component={Chart} />
-            <Route path="/login" exact component={Login} />
+            <Route path="/login" exact component={Authentication} />
           </Content>
           <Footer style={{ textAlign: 'center' }}>
             Vision @2019 Created by Victor Alessander
