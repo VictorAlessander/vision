@@ -1,0 +1,15 @@
+.column-form {
+  display: flex;
+  justify-content: center;
+}
+
+.debits-form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.debit-form-btn-back {
+  margin-top: 10px;
+}

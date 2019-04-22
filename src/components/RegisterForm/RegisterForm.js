@@ -17,10 +17,12 @@ class RegisterForm extends Component {
   }
 
   handleUsernameChange = (event) => {
+    this.props.form.setFieldsValue({ username: event.target.value })
     this.setState({ username: event.target.value })
   }
 
   handlePasswordChange = (event) => {
+    this.props.form.setFieldsValue({ password: event.target.value })
     this.setState({ password: event.target.value })
   }
 
@@ -47,7 +49,7 @@ class RegisterForm extends Component {
                 getFieldDecorator('username', {
                   rules: [{ required: true, message: 'Enter your username' }]
                 })(
-                  <Input prefix={<Icon type="user" />} placeholder="Username" type="text" value={this.state.username} onChange={this.handleUsernameChange} />
+                  <Input prefix={<Icon type="user" />} placeholder="Username" type="text" onChange={this.handleUsernameChange} />
                 )
               }
             </Form.Item>
@@ -56,7 +58,7 @@ class RegisterForm extends Component {
                 getFieldDecorator('password', {
                   rules: [{ required: true, message: 'Enter your password' }]
                 })(
-                  <Input prefix={<Icon type="lock" />} type="password" placeholder="Password" value={this.state.password} onChange={this.handlePasswordChange} />
+                  <Input prefix={<Icon type="lock" />} type="password" placeholder="Password" onChange={this.handlePasswordChange} />
                 )
               }
             </Form.Item>
