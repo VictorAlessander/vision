@@ -6,6 +6,7 @@ import {
   BILLING_MANAGER_BASE_PATH,
   BILLING_MANAGER_CATEGORIES_PATH
 } from '../../constants/BillingManager';
+import withDefaultLayout from '../../hoc/Layout';
 
 
 class CategoryForm extends React.Component {
@@ -80,4 +81,4 @@ class CategoryForm extends React.Component {
 
 const WrappedCategoryForm = Form.create({name: 'category_form'})(CategoryForm);
 
-export default withRouter(WrappedCategoryForm);
+export default withDefaultLayout(withRouter(WrappedCategoryForm));

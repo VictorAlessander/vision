@@ -3,6 +3,7 @@ import { BILLING_MANAGER_BASE_PATH, BILLING_HEADERS, BILLING_MANAGER_CATEGORIES_
 import { Table, Row, Col, Spin, Button } from 'antd';
 import './Categories.css';
 import { Link } from 'react-router-dom';
+import withDefaultLayout from '../../hoc/Layout';
 
 
 class Categories extends React.Component {
@@ -79,4 +80,4 @@ class Categories extends React.Component {
 };
 
 
-export default Categories;
+export default withDefaultLayout(Categories);

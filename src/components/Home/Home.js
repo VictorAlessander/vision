@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DebitsHistory from '../DebitsHistory/DebitsHistory';
+import withDefaultLayout from '../../hoc/Layout';
 
 
 class Home extends Component {
@@ -15,4 +16,4 @@ class Home extends Component {
   };
 };
 
-export default Home;
+export default withDefaultLayout(Home);

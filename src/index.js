@@ -4,14 +4,24 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
-import AuthProvider from './provider/AuthProvider';
+// import AuthProvider from './provider/AuthProvider';
+import { createStore } from 'redux';
+import reducer from './store/reducer';
+import { Provider } from 'react-redux';
+
+const store = createStore(reducer);
 
 ReactDOM.render(
-  <AuthProvider>
+  // <AuthProvider>
+  //   <BrowserRouter>
+  //     <App />
+  //   </BrowserRouter>
+  // </AuthProvider>
+  <Provider store={store}>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </AuthProvider>
+  </Provider>
   , document.getElementById('root')
 );
 

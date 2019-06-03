@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Line } from 'react-chartjs-2';
 import './Chart.css';
+import withDefaultLayout from '../../hoc/Layout';
 
 class Chart extends Component {
 
@@ -20,4 +21,4 @@ class Chart extends Component {
   }
 }
 
-export default Chart;
+export default withDefaultLayout(Chart);
